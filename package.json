@@ -1,11 +1,11 @@
 {
   "name": "frontendmasters",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Frontend Masters on npm!",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "postinstall": "node postinstall.js"
+  "bin": {
+    "frontendmasters": "./cli.js"
   },
   "keywords": [
     "frontendmasters",
