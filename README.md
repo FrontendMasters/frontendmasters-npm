@@ -3,4 +3,9 @@
 npm install frontendmasters
 ```
 
-A surprise will appear in your terminal after installation.
+## Usage
+```bash
+npx frontendmasters
+```
+
+A surprise will appear in your terminal.
