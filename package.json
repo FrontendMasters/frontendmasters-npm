@@ -1,0 +1,23 @@
+{
+  "name": "frontendmasters",
+  "version": "1.0.1",
+  "description": "Frontend Masters on npm!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "keywords": [
+    "frontendmasters",
+    "learning"
+  ],
+  "author": "Frontend Masters",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrontendMasters/frontendmasters-npm.git"
+  }
+}
