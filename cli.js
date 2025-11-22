@@ -12,10 +12,6 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function showMessage() {
   console.error('\n');
-  console.error(purple('╔════════════════════════════════════════════════════════════════════╗'));
-  console.error(purple('║') + '  ' + chalk.bold('npm install frontendmasters') + ' ' + green.bold('--save-100') + '                     ' + purple('║'));
-  console.error(purple('╚════════════════════════════════════════════════════════════════════╝'));
-  console.error('\n');
 
   console.error(cyan('// Optimize your stack'));
   console.error(cyan('// Save big this Black Friday'));
