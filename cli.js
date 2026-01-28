@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import chalk from 'chalk';
+import { getRandomContent } from './index.js';
 
 const purple = chalk.hex('#C27AFF');
 const green = chalk.hex('#05DF72');
@@ -12,55 +13,49 @@ const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function showMessage() {
   console.error('\n');
-
-  console.error(cyan('// Optimize your stack'));
-  console.error(cyan('// Save big this Black Friday'));
+  console.error(cyan('// Frontend Masters'));
+  console.error(cyan('// Level up your skills'));
   console.error('');
 
-  process.stderr.write(orange('⚡ Compiling savings'));
-  for (let i = 0; i < 3; i++) {
-    await sleep(200);
-    process.stderr.write('.');
-  }
-  console.error('');
+  const item = getRandomContent();
+  const isTip = item.type === 'Tip';
   
-  await sleep(300);
-  console.error(green('✓ ') + 'Deployment successful\n');
+  const title = isTip ? '💡 FRONTEND MASTERS' : '🎓 FEATURED PATH';
+  const label = isTip ? 'Tip: ' : '';
 
   await sleep(200);
-
   console.error(yellow('┌─────────────────────────────────────────────────────────────────┐'));
-  console.error(yellow('│') + chalk.bold.white('              🎉 BLACK FRIDAY SALE 🎉                          ') + yellow('│'));
+  
+  // Center the title
+  const titleStr = title;
+  const tPadLeft = Math.floor((65 - titleStr.length) / 2);
+  const tPadRight = 65 - titleStr.length - tPadLeft;
+  console.error(yellow('│') + ' '.repeat(tPadLeft) + chalk.bold.white(titleStr) + ' '.repeat(tPadRight) + yellow('│'));
+  
   console.error(yellow('│') + '                                                                 ' + yellow('│'));
-  console.error(yellow('│') + '           ' + green.bold('$100 OFF') + ' yearly membership                            ' + yellow('│'));
+  
+  // Format category centered
+  const categoryStr = `Category: ${item.category}`;
+  const paddingLeft = Math.floor((65 - categoryStr.length) / 2);
+  const paddingRight = 65 - categoryStr.length - paddingLeft;
+  console.error(yellow('│') + ' '.repeat(paddingLeft) + orange(categoryStr) + ' '.repeat(paddingRight) + yellow('│'));
+  
   console.error(yellow('│') + '                                                                 ' + yellow('│'));
-  console.error(yellow('│') + '   → Offer:  ' + purple('$100 discount') + '                                       ' + yellow('│'));
-  console.error(yellow('│') + '   → Valid:  ' + orange('This week only') + '                                     ' + yellow('│'));
-  console.error(yellow('│') + '   → Status: ' + green.bold('ACTIVE') + '                                            ' + yellow('│'));
   console.error(yellow('└─────────────────────────────────────────────────────────────────┘'));
-
+  
   console.error('\n');
-  console.error(chalk.bold.white('Level up your skills for less'));
-  console.error(chalk.gray("Don't miss out on this year's biggest savings!"));
+  console.error(chalk.bold.white(label + item.content));
   console.error('\n');
-
-  const features = [
-    'Master your stack with $100 off your first year',
-    'Learn from industry leaders in JavaScript, React, CSS, DevOps & more',
-    'Get unlimited access to 250+ expert-led courses',
-    'Build your skills with curated paths and personalized learning'
-  ];
-
-  for (const feature of features) {
-    await sleep(150);
-    console.error(green('✓ ') + feature);
-  }
-
+  
+  await sleep(100);
+  console.error(purple(isTip ? '🚀 Start the Path:' : '🚀 Start Learning:'));
+  console.error(chalk.underline.cyan(item.link));
+  
   console.error('\n');
   console.error(purple('═══════════════════════════════════════════════════════════════════'));
   console.error('\n');
-  console.error('  ' + chalk.bold.white('👉 Claim Your Discount:'));
-  console.error('  ' + chalk.underline.cyan('https://frontendmasters.com/join/?code=blackfriday_signup&utm_source=fm&utm_medium=terminal&utm_campaign=blackfriday_npm'));
+  console.error('  ' + chalk.bold.white('👉 Browse all learning paths:'));
+  console.error('  ' + chalk.underline.cyan('https://frontendmasters.com/learn/'));
   console.error('\n');
   console.error(purple('═══════════════════════════════════════════════════════════════════'));
   console.error('\n');

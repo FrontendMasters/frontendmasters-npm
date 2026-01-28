@@ -8,4 +8,4 @@ npm install frontendmasters
 npx frontendmasters
 ```
 
-A surprise will appear in your terminal.
+Get a random frontend, backend, or AI tip, or discover a new learning path directly in your terminal.
